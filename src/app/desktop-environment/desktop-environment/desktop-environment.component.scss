@@ -1,0 +1,17 @@
+:host,
+.desktop-environment-container {
+    display: block;
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+    /* Prevent scrollbars from OS */
+    position: relative;
+    /* For positioning children like taskbar */
+}
+
+app-desktop {
+    height: calc(100% - 40px);
+    /* Adjust 40px if taskbar height changes */
+}

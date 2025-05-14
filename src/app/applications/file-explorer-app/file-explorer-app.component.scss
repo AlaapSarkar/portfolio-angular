@@ -1,0 +1,109 @@
+:host {
+    display: flex; // Allows file-explorer-container to grow
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--color-window-content-bg, #2a2a4e); // Match window body
+    color: var(--color-text-primary);
+    font-family: var(--font-family-base);
+}
+
+.file-explorer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.address-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    background-color: var(--color-titlebar-background, #1a1a3e); // Darker part
+    border-bottom: 1px solid var(--color-border-window, #ff00ff);
+    font-size: 0.9rem;
+
+    button {
+        background: none;
+        border: 1px solid var(--color-border-button);
+        color: var(--color-text-primary);
+        margin-right: 8px;
+        cursor: pointer;
+        padding: 2px 5px;
+
+        &:hover {
+            background-color: var(--color-background-window);
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    span {
+        background-color: var(--color-background-window);
+        padding: 3px 6px;
+        border: 1px solid var(--color-border-button);
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.file-list-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    // For icon view, you might use display: flex; flex-wrap: wrap;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid transparent; // For focus/hover indication
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-titlebar-background-active, #3a3a7e);
+        border-color: var(--color-border-window-active, #00ffff);
+        outline: none;
+    }
+}
+
+.item-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    object-fit: contain;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.empty-folder {
+    padding: 20px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.status-bar {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--color-border-window);
+    background-color: var(--color-titlebar-background);
+    color: var(--color-text-secondary);
+}

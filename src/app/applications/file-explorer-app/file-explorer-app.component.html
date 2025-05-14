@@ -1,0 +1,22 @@
+<div class="file-explorer-container">
+    <div class="address-bar">
+        <button (click)="goUpOneLevel()" [disabled]="(currentFolderId$ | async) === fileSystem.ROOT_ID"
+            title="Up">⬆</button>
+        <span>{{ currentPathDisplay }}</span>
+    </div>
+    <div class="file-list-container">
+        <ul class="file-list">
+            <li *ngFor="let item of (itemsInCurrentFolder$ | async)" (dblclick)="handleItemClick(item)"
+                (keydown.enter)="handleItemClick(item)" tabindex="0" class="file-item" [title]="item.name">
+                <img [src]="getItemIcon(item)" [alt]="item.type" class="item-icon">
+                <span class="item-name">{{ item.name }}</span>
+            </li>
+            <li *ngIf="!(itemsInCurrentFolder$ | async)?.length" class="empty-folder">
+                This folder is empty.
+            </li>
+        </ul>
+    </div>
+    <div class="status-bar">
+        {{ (itemsInCurrentFolder$ | async)?.length || 0 }} object(s)
+    </div>
+</div>

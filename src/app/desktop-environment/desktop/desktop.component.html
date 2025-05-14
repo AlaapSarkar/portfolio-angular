@@ -1,0 +1,21 @@
+<div class="desktop-surface" (mousedown)="handleDesktopClick($event)">
+    <div *ngFor="let item of (desktopItems$ | async)" class="desktop-item"
+        [style.left.px]="getDesktopItemPosition(item.id).x" [style.top.px]="getDesktopItemPosition(item.id).y"
+        (dblclick)="onDesktopItemDoubleClick(item)" tabindex="0" [title]="item.name">
+        <img [src]="getItemIcon(item)" [alt]="item.name" class="desktop-item-icon">
+        <span class="desktop-item-name">{{ item.name }}</span>
+    </div>
+    <app-window *ngFor="let instance of runningInstances; trackBy: trackByWindowId"
+        [appInstance]="instance"
+        [class.minimized-window-hidden]="instance.isMinimized"
+        (closeRequested)="handleCloseRequested($event)"
+        (focusRequested)="handleFocusRequested($event)"
+        (minimizeRequested)="handleMinimizeRequested($event)"
+        (dragged)="handleDragged($event)"
+        [style.transform]="'translate(' + instance.x + 'px, ' + instance.y + 'px)'"
+        [style.width.px]="instance.width"
+        [style.height.px]="instance.height"
+        [style.zIndex]="instance.zIndex"
+    >
+    </app-window>
+</div>

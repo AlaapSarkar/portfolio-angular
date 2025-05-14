@@ -1,0 +1,98 @@
+:host {
+    display: block; // Critical for positioning
+    position: absolute; // Will be positioned by DesktopComponent via transform
+    // transition: transform 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out; // Optional: for smoother visual updates
+    // Default width/height are set by DesktopManagerService -> appInstance
+    // and applied via style binding in DesktopComponent or directly here
+}
+
+.os-window-frame {
+    background-color: var(--color-background-window, #2c2c4a);
+    border: 2px solid var(--color-border-window, #ff00ff);
+    color: var(--color-text-primary, #fff);
+    box-shadow: 3px 3px 0px 0px var(--color-border-window, #ff00ff);
+    display: flex;
+    flex-direction: column;
+    width: 100%; // Fill the host element
+    height: 100%; // Fill the host element
+    overflow: hidden; // Important for dynamic content
+
+    &.minimized {
+        display: none; // Or animate to taskbar - for now, just hide
+    }
+
+    &.active {
+        border-color: var(--color-border-window-active, #00ffff); // Example active border
+        box-shadow: 3px 3px 0px 0px var(--color-border-window-active, #00ffff);
+
+        .title-bar {
+            background-color: var(--color-titlebar-background-active, #3a3a7e); // Example active title bar
+        }
+    }
+}
+
+.title-bar {
+    background-color: var(--color-titlebar-background, #1a1a3e);
+    color: var(--color-titlebar-text, #e0e0ff);
+    padding: 5px 8px;
+    border-bottom: 2px solid var(--color-border-window, #ff00ff);
+    font-family: var(--font-family-heading, 'Press Start 2P');
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        padding: 0 5px;
+    }
+}
+
+.title-bar-icon img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.window-controls {
+    display: flex;
+}
+
+.control-button {
+    background-color: var(--color-button-background, #444);
+    color: var(--color-button-text, #fff);
+    border: 1px solid var(--color-border-button, #00ffff);
+    margin-left: 4px;
+    padding: 1px 5px;
+    font-family: var(--font-family-base, 'VT323');
+    font-size: 0.9rem;
+    cursor: pointer;
+    line-height: 1.2;
+    min-width: 20px;
+    text-align: center;
+
+    // &:hover {
+        // background-color: lighten(var(--color-button-background, #444), 10%);
+    // }
+
+    &.close:hover {
+        background-color: #ff3366;
+    }
+}
+
+.window-body {
+    padding: 0; // Content component should handle its own padding
+    flex-grow: 1;
+    overflow: auto; // Scroll content if it overflows
+    background-color: var(--color-window-content-bg, var(--color-background-window));
+}

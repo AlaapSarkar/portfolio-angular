@@ -1,1 +1,103 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss
+
+// 1. FONT IMPORTS (Example)
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Roboto:wght@400;700&display=swap');
+
+// 2. BASIC RESET / NORMALIZE (Very simple version)
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-family-base); // We'll define this variable next
+  color: var(--color-text-primary); // And this one
+  background-color: var(--color-background-desktop); // And this one
+}
+
+// More to come.../* You can add global styles to this file, and also import other style files */
+
+// src/styles.scss (continued)
+
+// ... (font imports and reset) ...
+
+// 3. CSS CUSTOM PROPERTIES (THEME VARIABLES)
+:root {
+  // --- COLORS (Vaporwave Inspired) ---
+  // Backgrounds
+  --color-background-desktop: #1A1A2E; // Dark indigo/purple
+  --color-background-window: #2A2A4E; // Slightly lighter for window bodies
+  --color-background-taskbar: #10101E; // Very dark for taskbar
+
+  // Text
+  --color-text-primary: #E0E0FF; // Light lavender/off-white for general text
+  --color-text-secondary: #A0A0CF; // Muted for less important text
+  --color-text-accent: #FF00FF; // Neon Pink (Magenta)
+  --color-text-accent-cyan: #00FFFF; // Neon Cyan
+
+  // Borders & Accents
+  --color-border-window: #FF00FF; // Neon Pink for window borders
+  --color-border-button: #00FFFF; // Neon Cyan for button borders
+  --color-accent-glow: rgba(255, 0, 255, 0.5); // Pink glow for effects
+
+  // Specific UI Elements
+  --color-titlebar-background: #3A2A6E; // Darker purple for title bars
+  --color-titlebar-text: #E0E0FF;
+
+  // --- TYPOGRAPHY ---
+  --font-family-heading: 'Press Start 2P', cursive;
+  --font-family-base: 'VT323', monospace; // Primary retro feel
+  --font-family-sans-serif: 'Roboto', sans-serif; // For fallback or cleaner sections
+
+  --font-size-base: 16px; // Or maybe 18px for VT323 to be comfy
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-title: 2.5rem;
+
+  // --- SPACING & SIZING ---
+  --spacing-unit: 8px; // Base unit for margins, paddings
+  --window-border-radius: 0px; // Sharp corners for retro windows
+  --button-border-radius: 0px; // Sharp corners for retro buttons
+  // or slightly rounded for a softer retro: --window-border-radius: 4px;
+
+  // --- EFFECTS ---
+  --text-shadow-glow: 0 0 5px var(--color-text-accent), 0 0 10px var(--color-text-accent);
+
+  --color-border-window-active: #00FFFF;
+  /* Cyan for active window */
+  --color-titlebar-background-active: #304A7E;
+  /* A slightly different active title bar */
+  --color-window-content-bg: var(--color-background-window);
+  /* Default content background */
+}
+
+// Apply base font size to html for rem unit calculations
+html {
+  font-size: var(--font-size-base);
+}
+
+// Re-apply body styles using the variables
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-desktop);
+  // Optional: Add a subtle grid or noise pattern to the desktop background
+  // background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  //                  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  // background-size: 20px 20px; // Adjust size of grid
+}
+
+// Basic link styling
+//   a {
+//     color: var(--color-text-accent-cyan);
+//     text-decoration: none;
+//     &:hover {
+//       text-decoration: underline;
+//       color: lighten(var(--color-text-accent-cyan), 10%);
+//     }
+//   }

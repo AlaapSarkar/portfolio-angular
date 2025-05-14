@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DesktopEnvironmentComponent } from "./desktop-environment/desktop-environment/desktop-environment.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [DesktopEnvironmentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

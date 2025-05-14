@@ -1,0 +1,81 @@
+:host {
+    display: block;
+    height: 40px; // Example height
+    background-color: var(--color-background-taskbar, #111);
+    color: var(--color-text-primary, #fff);
+    border-top: 1px solid var(--color-border-window, #ff00ff);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999; // Should be very high
+}
+
+.taskbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.start-button-placeholder {
+    background-color: var(--color-titlebar-background, #333);
+    color: var(--color-titlebar-text, #fff);
+    border: 1px solid var(--color-border-button, #0ff);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: var(--font-family-heading, 'Press Start 2P');
+    font-size: 0.7rem;
+    margin-right: 15px;
+}
+
+.open-window-tabs {
+    display: flex;
+    gap: 5px;
+    height: 100%;
+    align-items: flex-end;
+    /* Align tabs to bottom of taskbar */
+}
+
+.taskbar-tab {
+    background-color: var(--color-background-window, #2c2c4a);
+    color: var(--color-text-secondary, #ccc);
+    border: 1px solid var(--color-border-window, #ff00ff);
+    border-bottom: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: var(--font-family-base, 'VT323');
+    font-size: 0.8rem;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: calc(100% - 5px);
+    /* Small gap from bottom */
+    display: flex;
+    align-items: center;
+
+
+    &.active {
+        background-color: var(--color-titlebar-background-active, #3a3a7e);
+        color: var(--color-text-primary, #fff);
+        border-color: var(--color-border-window-active, #00ffff);
+        // font-weight: bold;
+    }
+
+    &.minimized {
+        font-style: italic;
+        opacity: 0.7;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.tab-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    object-fit: contain;
+}

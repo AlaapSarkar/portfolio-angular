@@ -1,0 +1,23 @@
+<div class="os-window-frame"
+     [class.active]="appInstance.isActive"
+     [class.minimized]="appInstance.isMinimized"
+     (mousedown)="onFocus()"> <!-- Focus when any part of the window is clicked -->
+
+  <div class="title-bar" (mousedown)="onDragStart($event)">
+    <span class="title-bar-icon">
+      <!-- Placeholder for app icon -->
+      <img *ngIf="false" src="" alt="App Icon" />
+    </span>
+    <span class="title">{{ appInstance.title }}</span>
+    <div class="window-controls">
+      <button class="control-button minimize" (click)="onMinimize()" (mousedown)="$event.stopPropagation()" aria-label="Minimize">_</button>
+      <!-- <button class="control-button maximize" aria-label="Maximize">[]</button> -->
+      <button class="control-button close" (click)="onClose()" (mousedown)="$event.stopPropagation()" aria-label="Close">X</button>
+    </div>
+  </div>
+
+  <div class="window-body">
+    <ng-template #contentHost></ng-template>
+  </div>
+  <!-- TODO: Add resize handles -->
+</div>
