@@ -1,7 +1,8 @@
 <div class="taskbar-container">
     <button class="start-button-placeholder">START</button>
     <!-- <button (click)="launchFileExplorer()" class="start-button-placeholder">File Explorer</button> -->
-    <button (click)="launchTestApp()" class="start-button-placeholder">TestApp</button>
+    <button (click)="launchFileExplorer()" class="quick-link"><img [src]="getAppIcon('fileExplorerApp')"/></button>
+    <!-- <button (click)="launchTestApp()" class="start-button-placeholder">TestApp</button> -->
 
     <div class="open-window-tabs">
         <button *ngFor="let window of openWindows.concat(minimizedWindows)" class="taskbar-tab"

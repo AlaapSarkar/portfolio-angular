@@ -42,27 +42,27 @@ export class FileSystemService {
       //   fileType: 'APP_SHORTCUT', content: 'textPadApp', // appId
       //   icon: 'assets/images/app-icons/textpad.png',
       // },
-      {
-        id: 'file_explorer_shortcut_desktop', parentId: this.DESKTOP_ID, name: 'File Explorer.exe', type: 'FILE',
-        fileType: 'APP_SHORTCUT', content: 'fileExplorerApp', // appId
-        icon: 'assets/images/app-icons/file_explorer.png',
-      },
-      {
-        id: 'readme_desktop', parentId: this.DESKTOP_ID, name: 'README.txt', type: 'FILE',
-        fileType: 'txt', content: 'ReadMe text', defaultAppId: 'textPadApp',
-        icon: 'assets/images/fs-icons/file_txt.png'
-      },
+      // {
+      //   id: 'file_explorer_shortcut_desktop', parentId: this.DESKTOP_ID, name: 'File Explorer.exe', type: 'FILE',
+      //   fileType: 'APP_SHORTCUT', content: 'fileExplorerApp', // appId
+      //   icon: 'assets/images/app-icons/file_explorer.png',
+      // },
+      // {
+      //   id: 'readme_desktop', parentId: this.DESKTOP_ID, name: 'README.txt', type: 'FILE',
+      //   fileType: 'txt', content: 'ReadMe text', defaultAppId: 'textPadApp',
+      //   icon: 'assets/images/fs-icons/file_txt.png'
+      // },
 
       // Documents Contents
       {
-        id: 'about_me_doc', parentId: 'documents_folder', name: 'About_Me.md', type: 'FILE',
-        fileType: 'md', content: '# About Me\n\nBio.', defaultAppId: 'textPadApp',
-        icon: 'assets/images/fs-icons/file_md.png'
+        id: 'about_me_doc', parentId: this.DESKTOP_ID, name: 'README_Alaap.txt', type: 'FILE',
+        fileType: 'txt', defaultAppId: 'textPadApp',
+        icon: 'assets/images/fs-icons/file_txt.png', contentPath: 'assets/file-data/about-me.txt'
       },
       {
-        id: 'contact_doc', parentId: 'documents_folder', name: 'Contact.txt', type: 'FILE',
-        fileType: 'txt', content: 'email\nlinkedin', defaultAppId: 'textPadApp',
-        icon: 'assets/images/fs-icons/file_txt.png'
+        id: 'contact_doc', parentId: this.DESKTOP_ID, name: 'Contact.md', type: 'FILE',
+        fileType: 'md', defaultAppId: 'textPadApp',
+        icon: 'assets/images/fs-icons/file_md.png', contentPath: 'assets/file-data/contact.md'
       },
 
       // Program Files / App Shortcuts (can also be used for a "Start Menu")

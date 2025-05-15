@@ -1,0 +1,21 @@
+<div class="textpad-container">
+    <!-- Future: Add a menu bar here (File, Edit, etc.) -->
+    <!-- <div class="textpad-menubar">File Edit View</div> -->
+
+    <div class="textpad-content-area">
+        <div *ngIf="isLoading" class="status-message">Loading "{{ currentFileName }}"...</div>
+        <div *ngIf="errorLoading" class="status-message error">{{ errorLoading }}</div>
+
+        <ng-container *ngIf="!isLoading && !errorLoading && fileContent !== null">
+            <ng-container *ngIf="isMarkdown; else plainTextView">
+                <markdown class="markdown-view" [data]="fileContent"></markdown>
+            </ng-container>
+            <ng-template #plainTextView>
+                <pre class="plaintext-view">{{ fileContent }}</pre>
+            </ng-template>
+        </ng-container>
+    </div>
+
+    <!-- Future: Add a status bar here -->
+    <!-- <div class="textpad-statusbar">Line: X, Col: Y</div> -->
+</div>

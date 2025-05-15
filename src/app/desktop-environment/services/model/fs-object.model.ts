@@ -10,6 +10,7 @@ export interface FSObject {
     // Properties specific to FILE type
     fileType?: FileType; // e.g., "txt", "md", "APP_SHORTCUT"
     content?: any;       // For APP_SHORTCUT (appId), small text files, or path for others
+    contentPath?: string,
     defaultAppId?: string; // AppId that opens this file type
 
     // General properties

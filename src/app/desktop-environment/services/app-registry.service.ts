@@ -4,6 +4,7 @@ import { AppDefinition } from './model/app-definition.model'; // Assuming this m
 // Import app components
 import { TestApplicationComponent } from '../../applications/test/test.component';
 import { FileExplorerAppComponent } from '../../applications/file-explorer-app/file-explorer-app.component';
+import { TextPadAppComponent } from '../../applications/text-pad-app/text-pad-app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,17 @@ export class AppRegistryService {
       allowMultipleInstances: true,
       defaultWidth: 600,
       defaultHeight: 400
+    });
+
+    this.registerApp({
+      appId: 'textPadApp',
+      name: 'TextPad',
+      icon: 'assets/images/app-icons/textpad.png',
+      component: TextPadAppComponent,
+      allowMultipleInstances: true,
+      defaultWidth: 600,
+      defaultHeight: 450,
+      supportedFileTypes: ['txt', 'md', 'log']
     });
 
     /*

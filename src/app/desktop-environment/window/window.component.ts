@@ -4,6 +4,8 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppInstance } from '../services/model/app-instance.model';
+import { AppDefinition } from '../services/model/app-definition.model';
+import { AppRegistryService } from "../services/app-registry.service";
 
 @Component({
   selector: 'app-window',
@@ -30,11 +32,15 @@ export class WindowComponent implements OnInit, OnDestroy, AfterViewInit {
   private dragStartY = 0;
   private windowInitialX = 0;
   private windowInitialY = 0;
+  public windowTitle = '';
+  public iconPath:String|undefined = '';
 
-  constructor(private elRef: ElementRef<HTMLElement>) { }
+  constructor(private elRef: ElementRef<HTMLElement>, private appRegistryService: AppRegistryService) { }
 
   ngOnInit(): void {
     this.loadContentComponent();
+    this.windowTitle = (this.appInstance.data?.fileName === undefined)?this.appInstance.title:this.appInstance.data?.fileName
+    this.iconPath = this.appRegistryService.getAppDefinition(this.appInstance.appId)?.icon
   }
 
   ngAfterViewInit(): void {
@@ -53,7 +59,8 @@ export class WindowComponent implements OnInit, OnDestroy, AfterViewInit {
     this.componentRef = this.contentHost.createComponent(this.appInstance.componentToRender);
 
     // Pass data to the dynamically created component if it has an @Input() named 'data'
-    if (this.appInstance.data && this.componentRef.instance.data !== undefined) {
+    // if (this.appInstance.data && this.componentRef.instance.data !== undefined) {
+    if (this.appInstance.data) {
       this.componentRef.instance.data = this.appInstance.data;
     }
   }
@@ -121,5 +128,9 @@ export class WindowComponent implements OnInit, OnDestroy, AfterViewInit {
     // Clean up global listeners if drag was interrupted
     document.removeEventListener('mousemove', this.onDragging);
     document.removeEventListener('mouseup', this.onDragEnd);
+  }
+
+  public handleMissingImage(event: Event) {
+    (event.target as HTMLImageElement).style.display = 'none';
   }
 }

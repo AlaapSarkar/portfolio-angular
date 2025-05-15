@@ -6,9 +6,9 @@
   <div class="title-bar" (mousedown)="onDragStart($event)">
     <span class="title-bar-icon">
       <!-- Placeholder for app icon -->
-      <img *ngIf="false" src="" alt="App Icon" />
+      <img [src]="iconPath" alt="App Icon" (error)="handleMissingImage($event)" />
     </span>
-    <span class="title">{{ appInstance.title }}</span>
+    <span class="title">{{ windowTitle }}</span>
     <div class="window-controls">
       <button class="control-button minimize" (click)="onMinimize()" (mousedown)="$event.stopPropagation()" aria-label="Minimize">_</button>
       <!-- <button class="control-button maximize" aria-label="Maximize">[]</button> -->

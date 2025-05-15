@@ -1,0 +1,120 @@
+:host {
+    display: flex; // Allows textpad-container to grow
+    flex-direction: column;
+    height: 100%; // Fill the window-body
+    background-color: var(--textpad-bg, #ffffff); // Default white background
+    color: var(--textpad-text-color, #000000); // Default black text
+    font-family: var(--font-family-base); // Or a specific editor font
+}
+
+.textpad-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden; // Important
+}
+
+.textpad-menubar {
+    // Placeholder for future
+    padding: 5px;
+    background-color: var(--textpad-menubar-bg, #f0f0f0);
+    border-bottom: 1px solid var(--textpad-border-color, #cccccc);
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+.textpad-content-area {
+    flex-grow: 1;
+    overflow-y: auto; // Enable scrolling for content
+    padding: var(--spacing-unit, 8px);
+    font-size: var(--font-size-md, 1rem); // Base font size for content
+}
+
+.status-message {
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+    color: var(--textpad-status-text-color, #555555);
+
+    &.error {
+        color: var(--textpad-error-text-color, #D8000C); // Error red
+        background-color: var(--textpad-error-bg, #FFD2D2); // Light red background
+        border: 1px solid var(--textpad-error-border-color, #D8000C);
+        border-radius: 3px;
+    }
+}
+
+.plaintext-view {
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+    font-family: var(--font-family-monospace, 'Courier New', Courier, monospace); // Specific monospace
+    line-height: 1.4;
+}
+
+.markdown-view {
+
+    // ngx-markdown will produce standard HTML elements. Style them as needed.
+    // Example:
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-family-heading, 'Press Start 2P'); // Or a sans-serif
+        color: var(--textpad-header-color, #333333);
+        margin-top: 1.2em;
+        margin-bottom: 0.6em;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+
+    code {
+        background-color: var(--textpad-code-bg, #f0f0f0);
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-family: var(--font-family-monospace, 'Courier New', Courier, monospace);
+    }
+
+    pre code {
+        display: block;
+        padding: 0.8em;
+        overflow-x: auto;
+    }
+
+    ul,
+    ol {
+        margin-left: 2em;
+        margin-bottom: 1em;
+    }
+
+    blockquote {
+        border-left: 3px solid var(--textpad-quote-border, #cccccc);
+        padding-left: 1em;
+        margin-left: 0;
+        color: var(--textpad-quote-text, #555555);
+        font-style: italic;
+    }
+}
+
+.textpad-statusbar {
+    // Placeholder for future
+    padding: 5px;
+    background-color: var(--textpad-menubar-bg, #f0f0f0);
+    border-top: 1px solid var(--textpad-border-color, #cccccc);
+    font-size: 0.8em;
+    color: var(--textpad-status-text-color, #555555);
+    flex-shrink: 0;
+    text-align: right;
+}
