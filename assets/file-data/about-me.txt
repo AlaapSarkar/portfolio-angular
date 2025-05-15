@@ -1,0 +1,40 @@
+==========================================================
+  ALAAP SARKAR - Developer's Log (README_Alaap.txt)
+==========================================================
+  Author: Alaap Sarkar
+  Version: 1.0 (Initial Release)
+  Contact: https://github.com/AlaapSarkar, alaap.sarkar@gmail.com
+==========================================================
+
+Greetings!
+
+If you're reading this, you've successfully booted into a project that's more than just a portfolio – it's a passion project, a learning ground, and a direct demonstration of my skills as a Full-Stack Developer.
+
+My name is Alaap Sarkar, and I built this simulated desktop environment from the ground up using Angular, a healthy dose of creativity, and a love for well-structured code. The goal? To offer a unique, interactive way to showcase what I can do.
+
+**>> WHAT YOU'RE SEEING:**
+
+Every window you drag, every "application" you launch, every file you "browse" is powered by a set of core Angular services and components I designed heavily inspired by actual OS systems like `inode tables`, `desktop environment`, `window manager`, `inter-process communication`
+
+This entire OS is built to demonstrate my proficiency in frontend architecture, state management, and creating complex, dynamic user interfaces and also my journey of learning and improving.
+
+**>> BEYOND THIS SIMULATION:**
+
+My professional experience spans nearly 3 years, focusing on backend development, API design, and database management. A significant highlight was leading a **Healthcare Service System Overhaul**. This wasn't just coding; it was a ground-up redesign of a mission-critical system for a home nursing provider. I worked closely with their CEO on-site, migrated their data across disparate database structures, transitioned their tech stack (PHP/Apache to Node.js/Angular), and meticulously managed both old and new systems running in parallel to ensure zero downtime.
+
+**>> THE ROAD AHEAD:**
+
+This portfolio is an evolving platform. Next on the roadmap:
+  * `[ ]` Make it more usable on mobile, refinement of the UI.
+  * `[ ]` Settings and CLI apps.
+  * `[ ]` Persistence using Local Storage.
+  * `[ ]` Accessibility
+  * `[ ]` Blogs, demos, features, etc.
+  * `[ ]` Integrating AI applications.
+  * `[ ]` Experimenting with WebAssembly (WASM) for high-performance demos.
+
+Professionally, I'm driven to contribute to innovative projects where I can leverage my full-stack capabilities and architectural thinking.
+
+Thank you for taking the time to explore!
+
+==========================================================
